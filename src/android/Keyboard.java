@@ -17,7 +17,7 @@ public class Keyboard extends CordovaPlugin {
 
 	View view;
 	try {
-		view = (View)webView.getClass().getMethod("getCurrentFocus").invoke(webView);
+		view = (View)webView.getClass().getMethod("getView").invoke(webView);
 	}
 	catch (Exception e){
 	    view = (View)webView;
