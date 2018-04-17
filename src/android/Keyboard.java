@@ -13,8 +13,9 @@ public class Keyboard extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 	Activity activity = this.cordova.getActivity();
-	InputMethodManager imm = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+	//InputMethodManager imm = (InputMethodManager)activity.getSystemService(Context.INPUT_METHOD_SERVICE);
 
+	InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
 	View view;
 	try {
 	    view = (View)webView.getClass().getMethod("getView").invoke(webView);
