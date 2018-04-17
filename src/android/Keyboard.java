@@ -17,7 +17,8 @@ public class Keyboard extends CordovaPlugin {
 
 	View view;
 	try {
-	    view = (View)webView.getClass().getMethod("getView").invoke(webView);
+		//view = (View)webView.getClass().getMethod("getView").invoke(webView);
+		view = (View)webView.getCurrentFocus();
 	}
 	catch (Exception e){
 	    view = (View)webView;
@@ -29,8 +30,7 @@ public class Keyboard extends CordovaPlugin {
 	    return true;
 	}
 	else if("hide".equals(action)){
-		//imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-		imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+		imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 	    callbackContext.success();
 	    return true;
 	}
